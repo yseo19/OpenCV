@@ -15,10 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dog.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="사진출력.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="영상출력.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="dog.cpp">
+    <ClCompile Include="트랙바.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="마스크.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,25 +1,49 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
 
-using namespace cv;
 using namespace std;
+using namespace cv;
 
-int main()
-{
-	cout << "Hello OpenCV " << CV_VERSION << endl;
+void video_in() {
+	VideoCapture cap("lol.mp4");
 
-	Mat img;
-	img = imread("lenna.bmp", IMREAD_GRAYSCALE);
-
-	if (img.empty()) {
-		cerr << "Image load failed!" << endl;
-		return -1;
+	if (!cap.isOpened()) {
+		cerr << "Video opoen failed!" << endl;
+		return;
 	}
 
-	namedWindow("image", WINDOW_AUTOSIZE);
-	imshow("image", img);
+	cout << "Frame width : " << cvRound(cap.get(CAP_PROP_FRAME_WIDTH)) << endl;
+	cout << "Frame height : " << cvRound(cap.get(CAP_PROP_FRAME_HEIGHT)) << endl;
+	cout << "Frame count : " << cvRound(cap.get(CAP_PROP_FRAME_COUNT)) << endl;
 
-	waitKey();
+	double fps = cap.get(CAP_PROP_FPS);
+	cout << "FPS : " << fps << endl;
+
+	int delay = cvRound(1000 / fps);
+
+	Mat frame, inversed;
+
+	while (true) {
+		cap >> frame;
+		if (frame.empty())
+			break;
+
+		inversed = ~frame;
+
+		imshow("frame", frame);
+		imshow("inversed", inversed);
+
+		if (waitKey(delay) == 27)
+			break;
+	}
+
+	destroyAllWindows();
+
+}
+
+
+int main(void) {
+	video_in();
 
 	return 0;
 }
