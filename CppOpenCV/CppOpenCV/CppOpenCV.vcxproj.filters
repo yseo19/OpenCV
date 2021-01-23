@@ -30,5 +30,14 @@
     <ClCompile Include="마스크.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="명암비_1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="명암비_2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="히스토그램.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
