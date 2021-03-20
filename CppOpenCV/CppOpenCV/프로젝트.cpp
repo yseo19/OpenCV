@@ -13,6 +13,7 @@ void affine_transform() {
 		return;
 	}
 
+
 	double fps = cap.get(CAP_PROP_FPS);
 	cout << "FPS : " << fps << endl;
 
@@ -28,7 +29,7 @@ void affine_transform() {
 		if (frame.empty())
 			break;
 
-		imshow("frames", frames[pos++]);
+		imshow("frames", frames[0]);
 
 		int keycode = waitKeyEx(1);
 
@@ -50,7 +51,6 @@ void affine_transform() {
 		if (keycode == 27)
 			break;
 	}
-
 
 	destroyAllWindows();
 }
